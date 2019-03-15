@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+
 class ProfileViewController: UIViewController {
     //Outlets
     @IBOutlet weak var emailOutlet: UILabel!
