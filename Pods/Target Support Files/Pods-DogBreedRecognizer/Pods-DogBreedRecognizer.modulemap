@@ -1,0 +1,6 @@
+framework module Pods_DogBreedRecognizer {
+  umbrella header "Pods-DogBreedRecognizer-umbrella.h"
+
+  export *
+  module * { export * }
+}
