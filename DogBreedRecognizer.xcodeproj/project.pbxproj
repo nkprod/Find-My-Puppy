@@ -10,14 +10,19 @@
 		049334948EC98FB61757A356 /* Pods_DogBreedRecognizerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD86ADF37F4D5A0A648CEE30 /* Pods_DogBreedRecognizerUITests.framework */; };
 		30E855ADBFB09D8423520FAB /* Pods_DogBreedRecognizerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BB6C84E421D4C607F429489 /* Pods_DogBreedRecognizerTests.framework */; };
 		765161D490DFB48E960FB4CC /* Pods_DogBreedRecognizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 423E5451BFA4FA8578C55814 /* Pods_DogBreedRecognizer.framework */; };
-		9C03828721A307AB00D5AF0A /* breedClassifier_86.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9C03828621A307AB00D5AF0A /* breedClassifier_86.mlmodel */; };
 		9C03828921A309E700D5AF0A /* UImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C03828821A309E700D5AF0A /* UImage+Extension.swift */; };
 		9C0E2C1E2209C36C00BECD96 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E2C1D2209C36C00BECD96 /* MapViewController.swift */; };
+		9C1BC5392241F3540014A840 /* UploadDogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1BC5382241F3540014A840 /* UploadDogViewController.swift */; };
 		9C2A1C952225D0F300715186 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9C2A1C942225D0F300715186 /* GoogleService-Info.plist */; };
-		9C3FC9442200F9BD00A74A4E /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3FC9432200F9BD00A74A4E /* MenuBar.swift */; };
+		9C32F0BB2246DE40001202DE /* breedClassifier_87.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9C32F0BA2246DE40001202DE /* breedClassifier_87.mlmodel */; };
 		9C3FC9462201009900A74A4E /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3FC9452201009900A74A4E /* TabbarViewController.swift */; };
+		9C555D2B224DD6CE00696B96 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C555D2A224DD6CE00696B96 /* Constants.swift */; };
+		9C555D31224DE8E400696B96 /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C555D30224DE8E400696B96 /* Dog.swift */; };
+		9C555D34224DEC3700696B96 /* DogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C555D33224DEC3700696B96 /* DogCell.swift */; };
 		9C80AA4F223B09AF00F0BFA4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C80AA4E223B09AF00F0BFA4 /* SignInViewController.swift */; };
 		9C80AA51223B12C100F0BFA4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C80AA50223B12C100F0BFA4 /* ProfileViewController.swift */; };
+		9C80AA53223BEDB500F0BFA4 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C80AA52223BEDB500F0BFA4 /* TableViewController.swift */; };
+		9C80AA57223BF44600F0BFA4 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C80AA56223BF44600F0BFA4 /* CustomCell.swift */; };
 		9CACE0B5217FB46000997436 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CACE0B4217FB46000997436 /* AppDelegate.swift */; };
 		9CACE0B7217FB46000997436 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CACE0B6217FB46000997436 /* ViewController.swift */; };
 		9CACE0BA217FB46000997436 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CACE0B8217FB46000997436 /* Main.storyboard */; };
@@ -50,14 +55,19 @@
 		423E5451BFA4FA8578C55814 /* Pods_DogBreedRecognizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DogBreedRecognizer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		472196A097220A7DD285C351 /* Pods-DogBreedRecognizerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogBreedRecognizerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DogBreedRecognizerUITests/Pods-DogBreedRecognizerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		749130D36849136CE67A6408 /* Pods-DogBreedRecognizer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogBreedRecognizer.release.xcconfig"; path = "Pods/Target Support Files/Pods-DogBreedRecognizer/Pods-DogBreedRecognizer.release.xcconfig"; sourceTree = "<group>"; };
-		9C03828621A307AB00D5AF0A /* breedClassifier_86.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = breedClassifier_86.mlmodel; sourceTree = "<group>"; };
 		9C03828821A309E700D5AF0A /* UImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UImage+Extension.swift"; sourceTree = "<group>"; };
 		9C0E2C1D2209C36C00BECD96 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		9C1BC5382241F3540014A840 /* UploadDogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDogViewController.swift; sourceTree = "<group>"; };
 		9C2A1C942225D0F300715186 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		9C3FC9432200F9BD00A74A4E /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
+		9C32F0BA2246DE40001202DE /* breedClassifier_87.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = breedClassifier_87.mlmodel; sourceTree = "<group>"; };
 		9C3FC9452201009900A74A4E /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
+		9C555D2A224DD6CE00696B96 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9C555D30224DE8E400696B96 /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
+		9C555D33224DEC3700696B96 /* DogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogCell.swift; sourceTree = "<group>"; };
 		9C80AA4E223B09AF00F0BFA4 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		9C80AA50223B12C100F0BFA4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		9C80AA52223BEDB500F0BFA4 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		9C80AA56223BF44600F0BFA4 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		9CACE0B1217FB46000997436 /* DogBreedRecognizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogBreedRecognizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CACE0B4217FB46000997436 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CACE0B6217FB46000997436 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +128,45 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9C32F0B92242B72A001202DE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9CACE0B6217FB46000997436 /* ViewController.swift */,
+				9C3FC9452201009900A74A4E /* TabbarViewController.swift */,
+				9C0E2C1D2209C36C00BECD96 /* MapViewController.swift */,
+				9C80AA4E223B09AF00F0BFA4 /* SignInViewController.swift */,
+				9C80AA50223B12C100F0BFA4 /* ProfileViewController.swift */,
+				9C80AA52223BEDB500F0BFA4 /* TableViewController.swift */,
+				9C1BC5382241F3540014A840 /* UploadDogViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9C555D29224DD69B00696B96 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				9C03828821A309E700D5AF0A /* UImage+Extension.swift */,
+				9C555D2A224DD6CE00696B96 /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		9C555D2F224DE8D600696B96 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9C555D30224DE8E400696B96 /* Dog.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9C555D32224DEC2000696B96 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9C555D33224DEC3700696B96 /* DogCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		9CACE0A8217FB46000997436 = {
 			isa = PBXGroup;
 			children = (
@@ -143,20 +192,18 @@
 		9CACE0B3217FB46000997436 /* DogBreedRecognizer */ = {
 			isa = PBXGroup;
 			children = (
+				9C32F0B92242B72A001202DE /* Controllers */,
+				9C555D32224DEC2000696B96 /* View */,
+				9C555D2F224DE8D600696B96 /* Model */,
+				9C555D29224DD69B00696B96 /* Utilities */,
+				9C32F0BA2246DE40001202DE /* breedClassifier_87.mlmodel */,
 				9C2A1C942225D0F300715186 /* GoogleService-Info.plist */,
 				9CACE0B4217FB46000997436 /* AppDelegate.swift */,
-				9CACE0B6217FB46000997436 /* ViewController.swift */,
-				9C3FC9432200F9BD00A74A4E /* MenuBar.swift */,
 				9CACE0B8217FB46000997436 /* Main.storyboard */,
-				9C03828621A307AB00D5AF0A /* breedClassifier_86.mlmodel */,
 				9CACE0BB217FB46200997436 /* Assets.xcassets */,
 				9CACE0BD217FB46200997436 /* LaunchScreen.storyboard */,
 				9CACE0C0217FB46200997436 /* Info.plist */,
-				9C03828821A309E700D5AF0A /* UImage+Extension.swift */,
-				9C3FC9452201009900A74A4E /* TabbarViewController.swift */,
-				9C0E2C1D2209C36C00BECD96 /* MapViewController.swift */,
-				9C80AA4E223B09AF00F0BFA4 /* SignInViewController.swift */,
-				9C80AA50223B12C100F0BFA4 /* ProfileViewController.swift */,
+				9C80AA56223BF44600F0BFA4 /* CustomCell.swift */,
 			);
 			path = DogBreedRecognizer;
 			sourceTree = "<group>";
@@ -201,7 +248,6 @@
 				9CACE0AE217FB46000997436 /* Frameworks */,
 				9CACE0AF217FB46000997436 /* Resources */,
 				0776D01FDCEDE8C69DAEC077 /* [CP] Embed Pods Frameworks */,
-				FFD65312B648AD9F92C1ED0B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -331,20 +377,30 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DogBreedRecognizer/Pods-DogBreedRecognizer-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/LocationPickerController/LocationPickerController.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LocationPickerController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,30 +474,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FFD65312B648AD9F92C1ED0B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DogBreedRecognizer/Pods-DogBreedRecognizer-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
-				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DogBreedRecognizer/Pods-DogBreedRecognizer-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -451,13 +483,18 @@
 			files = (
 				9CACE0B7217FB46000997436 /* ViewController.swift in Sources */,
 				9C03828921A309E700D5AF0A /* UImage+Extension.swift in Sources */,
+				9C80AA57223BF44600F0BFA4 /* CustomCell.swift in Sources */,
 				9C3FC9462201009900A74A4E /* TabbarViewController.swift in Sources */,
-				9C03828721A307AB00D5AF0A /* breedClassifier_86.mlmodel in Sources */,
+				9C80AA53223BEDB500F0BFA4 /* TableViewController.swift in Sources */,
 				9C80AA4F223B09AF00F0BFA4 /* SignInViewController.swift in Sources */,
+				9C32F0BB2246DE40001202DE /* breedClassifier_87.mlmodel in Sources */,
 				9CACE0B5217FB46000997436 /* AppDelegate.swift in Sources */,
 				9C80AA51223B12C100F0BFA4 /* ProfileViewController.swift in Sources */,
-				9C3FC9442200F9BD00A74A4E /* MenuBar.swift in Sources */,
 				9C0E2C1E2209C36C00BECD96 /* MapViewController.swift in Sources */,
+				9C1BC5392241F3540014A840 /* UploadDogViewController.swift in Sources */,
+				9C555D31224DE8E400696B96 /* Dog.swift in Sources */,
+				9C555D34224DEC3700696B96 /* DogCell.swift in Sources */,
+				9C555D2B224DD6CE00696B96 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,7 +676,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Nurlybek.DogBreedRecognizer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nurlybekkarshiga.dogrecognizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -657,7 +694,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Nurlybek.DogBreedRecognizer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nurlybekkarshiga.dogrecognizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

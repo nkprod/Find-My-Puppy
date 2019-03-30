@@ -9,8 +9,9 @@ target 'DogBreedRecognizer' do
 pod "Floaty", "~> 4.1.0"
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
-pod 'FirebaseUI/Auth'
-pod 'GoogleSignIn'
+pod 'Firebase/Firestore'
+pod 'LocationPickerController'
+
 
   target 'DogBreedRecognizerTests' do
     inherit! :search_paths
