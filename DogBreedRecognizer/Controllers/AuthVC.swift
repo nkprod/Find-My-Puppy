@@ -8,9 +8,10 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
 
 
-class SignInViewController: UIViewController{
+class AuthVC: UIViewController{
     
     //Outlets
     //Log in
@@ -40,19 +41,13 @@ class SignInViewController: UIViewController{
             createAlert(message: "Please input a password")
             return
         }
-        createUser(email: email, password: password)
+        createUser(email: email, password: password, username: username)
+        swipeDownRegistrationPanel()
 
     }
     //Puts sign up view down
     @IBAction func notNowTapped(_ sender: Any) {
-        topConstraintHeight.constant = 800;
-        logoTopConstraintHeight.constant = 249;
-        UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
-            self.view.layoutIfNeeded()
-        }, completion: nil)
-        usernameSignUpOutlet.text = ""
-        emailSignUpOutlet.text = ""
-        passwordSignUpOutlet.text = ""
+        swipeDownRegistrationPanel()
     }
     //Constraints
     @IBOutlet weak var logoTopConstraintHeight: NSLayoutConstraint!
@@ -82,17 +77,41 @@ class SignInViewController: UIViewController{
         emailSignUpOutlet.text = ""
         passwordSignUpOutlet.text = ""
     }
+    func swipeDownRegistrationPanel() {
+        topConstraintHeight.constant = 800;
+        logoTopConstraintHeight.constant = 249;
+        UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+        usernameSignUpOutlet.text = ""
+        emailSignUpOutlet.text = ""
+        passwordSignUpOutlet.text = ""
+    }
     
     //register a user
-    func createUser(email: String, password: String) {
+    func createUser(email: String, password: String, username: String) {
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
             if error == nil {
                 //User has been created
                 //Sign In user
-                self.signInUser(email: email, password: password)
+//                self.signInUser(email: email, password: password)
+                let changeRequest = result?.user.createProfileChangeRequest()
+                changeRequest?.displayName = username
+                changeRequest?.commitChanges(completion: { (error) in
+                    debugPrint("Error changing file : \(String(describing: error?.localizedDescription))")
+                })
             } else {
                 print(error?.localizedDescription as Any)
             }
+            guard let userID = result?.user.uid else { return }
+            Firestore.firestore().collection(USERS_REF).document(userID).setData([
+                USERNAME : username,
+                DATE_CREATED : FieldValue.serverTimestamp()
+                ], completion: { (error) in
+                    if let error = error {
+                        debugPrint("Error \(error.localizedDescription)")
+                    }
+            })
         }
     }
     //log in a registered user

@@ -17,7 +17,7 @@ enum SexCategory : String {
     case female = "Female"
 }
 
-class UploadDogViewController: UIViewController,UITextViewDelegate {
+class UploadLostDogVC: UIViewController,UITextViewDelegate {
 
     //Outlets
     @IBOutlet private weak var dogImageView: UIImageView!
@@ -40,9 +40,9 @@ class UploadDogViewController: UIViewController,UITextViewDelegate {
         super.viewDidLoad()
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .date
-        datePicker?.addTarget(self, action: #selector(UploadDogViewController.dateChanged(datePicker: )), for: .valueChanged)
+        datePicker?.addTarget(self, action: #selector(UploadLostDogVC.dateChanged(datePicker: )), for: .valueChanged)
         ageTextField.inputView = datePicker
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(UploadDogViewController.viewTapped(gestureRecognizer:)))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(UploadLostDogVC.viewTapped(gestureRecognizer:)))
         view.addGestureRecognizer(tapGesture)
         self.present(imagePicker, animated: true, completion: nil)
         moreInfoTextField.delegate = self
@@ -53,7 +53,6 @@ class UploadDogViewController: UIViewController,UITextViewDelegate {
         moreInfoTextField.layer.borderWidth = 0.5
         moreInfoTextField.clipsToBounds = true
         petSex = "Male"
-        print(sexSegmentedControl.selectedSegmentIndex)
         // Do any additional setup after loading the view.
     }
     
@@ -198,6 +197,7 @@ class UploadDogViewController: UIViewController,UITextViewDelegate {
         guard let email = Auth.auth().currentUser?.email else {return}
         
        Firestore.firestore().collection(DOGS_REF).addDocument(data: [
+        CATEGORY : "Lost",
         PET_NAME : name,
         PET_AGE : age,
         PET_SEX : petSex,
@@ -205,7 +205,9 @@ class UploadDogViewController: UIViewController,UITextViewDelegate {
         LAST_SEEN_ADDRESS : address,
         MORE_INFO : additionalInfo,
         TIMESTAMP : FieldValue.serverTimestamp(),
-        USER_EMAIL : email
+        USER_EMAIL : email,
+        NUM_COMMENTS : 0,
+        USER_ID : Auth.auth().currentUser?.uid ?? ""
        ]) { (err) in
         if let err = err {
             debugPrint("Error adding document \(err)")
@@ -217,7 +219,7 @@ class UploadDogViewController: UIViewController,UITextViewDelegate {
     
 
 }
-extension UploadDogViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension UploadLostDogVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         // The input image size should be 224x224 for Recognition using the CNN model
@@ -238,7 +240,7 @@ extension UploadDogViewController: UIImagePickerControllerDelegate, UINavigation
 }
 
 
-private extension UploadDogViewController {
+private extension UploadLostDogVC {
     
     func resnet(ref: CVPixelBuffer) {
         do {

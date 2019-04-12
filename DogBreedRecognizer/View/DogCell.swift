@@ -11,15 +11,19 @@ import UIKit
 class DogCell: UITableViewCell {
     
     //Outlets
-    
     @IBOutlet weak var lastSeenAddress: UILabel!
     @IBOutlet weak var petBreed: UILabel!
     @IBOutlet weak var timestamp: UILabel!
     @IBOutlet weak var petNameLabel: UILabel!
     @IBOutlet weak var userEmailLabel: UILabel!
+    @IBOutlet weak var numCommentsLabel: UILabel!
+    @IBOutlet weak var commentsImage: UIImageView!
+    
+    @IBOutlet weak var optionsMenu: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
     }
     func configureCell(dog: Dog) {
@@ -31,7 +35,7 @@ class DogCell: UITableViewCell {
         formater.dateFormat = "MMM d, hh:mm"
         let formatedDate = formater.string(from: dog.timestamp.dateValue())
         timestamp.text = formatedDate
-        
+        numCommentsLabel.text = String(dog.numComments)
     }
 
 }
