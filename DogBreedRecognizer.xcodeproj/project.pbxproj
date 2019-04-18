@@ -20,6 +20,7 @@
 		9C555D34224DEC3700696B96 /* DogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C555D33224DEC3700696B96 /* DogCell.swift */; };
 		9C555D362251A7F300696B96 /* UploadFoundDogVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C555D352251A7F300696B96 /* UploadFoundDogVC.swift */; };
 		9C80AA4F223B09AF00F0BFA4 /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C80AA4E223B09AF00F0BFA4 /* AuthVC.swift */; };
+		9C9E43BF22693FA3002642D9 /* UpdateCommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9E43BE22693FA3002642D9 /* UpdateCommentVC.swift */; };
 		9CACE0B5217FB46000997436 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CACE0B4217FB46000997436 /* AppDelegate.swift */; };
 		9CACE0B7217FB46000997436 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CACE0B6217FB46000997436 /* ViewController.swift */; };
 		9CACE0BA217FB46000997436 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CACE0B8217FB46000997436 /* Main.storyboard */; };
@@ -67,6 +68,7 @@
 		9C555D33224DEC3700696B96 /* DogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogCell.swift; sourceTree = "<group>"; };
 		9C555D352251A7F300696B96 /* UploadFoundDogVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFoundDogVC.swift; sourceTree = "<group>"; };
 		9C80AA4E223B09AF00F0BFA4 /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
+		9C9E43BE22693FA3002642D9 /* UpdateCommentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCommentVC.swift; sourceTree = "<group>"; };
 		9CACE0B1217FB46000997436 /* DogBreedRecognizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogBreedRecognizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CACE0B4217FB46000997436 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CACE0B6217FB46000997436 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				9C555D352251A7F300696B96 /* UploadFoundDogVC.swift */,
 				9CE9DA9F225EF20500571BC4 /* CommentsVC.swift */,
 				9CE9DAA7225EFE9B00571BC4 /* ProfileVC.swift */,
+				9C9E43BE22693FA3002642D9 /* UpdateCommentVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 				9C32F0BB2246DE40001202DE /* breedClassifier_87.mlmodel in Sources */,
 				9CACE0B5217FB46000997436 /* AppDelegate.swift in Sources */,
 				9C1BC5392241F3540014A840 /* UploadLostDogVC.swift in Sources */,
+				9C9E43BF22693FA3002642D9 /* UpdateCommentVC.swift in Sources */,
 				9C555D31224DE8E400696B96 /* Dog.swift in Sources */,
 				9CE9DAA6225EFB9F00571BC4 /* Comment.swift in Sources */,
 				9C555D34224DEC3700696B96 /* DogCell.swift in Sources */,

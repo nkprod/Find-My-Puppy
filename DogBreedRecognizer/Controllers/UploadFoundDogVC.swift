@@ -11,6 +11,7 @@ import LocationPickerController
 import CoreLocation
 import FirebaseFirestore
 import FirebaseAuth
+import FirebaseStorage
 
 class UploadFoundDogVC: UIViewController, UITextViewDelegate {
     //Outlets
@@ -20,10 +21,14 @@ class UploadFoundDogVC: UIViewController, UITextViewDelegate {
     @IBOutlet weak var moreInfoTextView: UITextView!
     @IBOutlet weak var lastSeenAddressTextField: UITextField!
     @IBOutlet weak var recognizedBreedTextField: UITextField!
+    
+    //Variables
+    var randomId = NSUUID().uuidString
+    
     //Constants
     let imagePicker = UIImagePickerController()
     let breedRecognizerModel = breedClassifier_87()
-    
+    let storage = Storage.storage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,25 +80,41 @@ class UploadFoundDogVC: UIViewController, UITextViewDelegate {
         }
         guard let email = Auth.auth().currentUser?.email else {return}
         guard let additionalInfo = moreInfoTextView.text else { return }
+        guard let image = dogImageView.image else { return }
         
-        Firestore.firestore().collection(DOGS_REF).addDocument(data: [
-            CATEGORY : "Found",
-            PET_NAME : "",
-            PET_AGE : "",
-            PET_SEX : "",
-            PET_BREED : breed,
-            LAST_SEEN_ADDRESS : address,
-            MORE_INFO : additionalInfo,
-            TIMESTAMP : FieldValue.serverTimestamp(),
-            USER_EMAIL : email,
-            NUM_COMMENTS : 0,
-            USER_ID : Auth.auth().currentUser?.uid ?? ""
-        ]) { (err) in
-            if let err = err {
-                debugPrint("Error adding document \(err)")
+        var data = Data()
+        data = image.jpegData(compressionQuality: 0.8)!
+        
+        let imageRef = storage.reference().child( "images/" + randomId)
+        _ = imageRef.putData(data, metadata: nil, completion: { (metadata, error) in
+            guard let metadata = metadata else {
+                // Uh-oh, an error occurred!
+                return
             }
-            self.navigationController?.popViewController(animated: true)
-        }
+            // You can also access to download URL after upload.
+            imageRef.downloadURL { (url, error) in
+                guard let downloadURL = url else { return }
+                Firestore.firestore().collection(DOGS_REF).addDocument(data: [
+                    CATEGORY : "Found",
+                    PET_NAME : "",
+                    PET_AGE : "",
+                    PET_SEX : "",
+                    PET_BREED : breed,
+                    LAST_SEEN_ADDRESS : address,
+                    MORE_INFO : additionalInfo,
+                    TIMESTAMP : FieldValue.serverTimestamp(),
+                    USER_EMAIL : email,
+                    NUM_COMMENTS : 0,
+                    USER_ID : Auth.auth().currentUser?.uid ?? "",
+                    IMAGE_URL : downloadURL.absoluteString
+                ]) { (err) in
+                    if let err = err {
+                        debugPrint("Error adding document \(err)")
+                    }
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
+        })
     }
     
     func createAlert(message: String) {

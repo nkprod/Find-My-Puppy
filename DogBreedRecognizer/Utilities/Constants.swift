@@ -26,3 +26,5 @@ let USERS_REF = "users"
 let USERNAME = "username"
 let DATE_CREATED = "dateCreated"
 let USER_ID = "userId"
+
+let IMAGE_URL = "imageURL"

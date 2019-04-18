@@ -20,9 +20,11 @@ class Dog {
     private(set) var hostEmail: String!
     private(set) var numComments: Int!
     private(set) var userId: String!
+    private(set) var imageURL : String!
+    private(set) var moreInfo: String!
 
     
-    init(name: String, age: String, sex: String, breed: String, address:String, timestamp: Timestamp, documentId: String, hostEmail: String, numComments: Int, userId: String) {
+    init(name: String, age: String, sex: String, breed: String, address:String, timestamp: Timestamp, documentId: String, hostEmail: String, numComments: Int, userId: String, imageURL: String, moreInfo: String) {
         self.name = name
         self.age = age
         self.sex = sex
@@ -33,6 +35,8 @@ class Dog {
         self.hostEmail = hostEmail
         self.numComments = numComments
         self.userId = userId
+        self.imageURL = imageURL
+        self.moreInfo = moreInfo
     }
     
     class func parseData(snapshot: QuerySnapshot?) -> [Dog] {
@@ -50,8 +54,10 @@ class Dog {
             let numComments = data[NUM_COMMENTS] as? Int ?? 0
             let userId = data[USER_ID] as? String ?? ""
             let documentId = document.documentID
+            let imageURL = data[IMAGE_URL] as? String ?? ""
+            let moreInfo = data[MORE_INFO] as? String ?? ""
             
-            let lostDog = Dog(name: petName, age: petAge, sex: petSex, breed: petBreed, address: address, timestamp: timestamp, documentId: documentId, hostEmail: userEmail,numComments: numComments, userId: userId)
+            let lostDog = Dog(name: petName, age: petAge, sex: petSex, breed: petBreed, address: address, timestamp: timestamp, documentId: documentId, hostEmail: userEmail,numComments: numComments, userId: userId, imageURL: imageURL, moreInfo: moreInfo)
             dogs.append(lostDog)
         }
         return dogs

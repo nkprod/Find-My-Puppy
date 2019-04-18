@@ -11,6 +11,7 @@ pod 'Firebase/Core'
 pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
 pod 'LocationPickerController'
+pod 'Firebase/Storage'
 
 
   target 'DogBreedRecognizerTests' do

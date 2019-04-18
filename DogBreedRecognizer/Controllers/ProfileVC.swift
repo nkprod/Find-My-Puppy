@@ -9,9 +9,11 @@ enum DogCategory: String {
     case found = "Found"
 }
 
-class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, DogDelegate {
+
+    
     //Outlets
-    @IBOutlet weak var emailOutlet: UILabel!
+    @IBOutlet weak var usernameOutlet: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var floaty: Floaty!
@@ -41,12 +43,14 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.rowHeight = UITableView.automaticDimension
         //        guard let email = Auth.auth().currentUser?.email else { return }
         guard let username = Auth.auth().currentUser?.displayName else { return }
-        emailOutlet.text = "\(username)"
+        usernameOutlet.text = "\(username)"
         dogsCollectionRef = Firestore.firestore().collection(DOGS_REF)
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         setListener()
     }
+    
     func setListener() {
         dogsListener = dogsCollectionRef
             .whereField(CATEGORY, isEqualTo: selectedCategory)
@@ -67,12 +71,17 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    //protocol method for the optionsMenu
+    func dogOptionMenuTapped(dog: Dog) {
+        print(dog.name)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dogs.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "dogCell", for: indexPath) as? DogCell {
-            cell.configureCell(dog: dogs[indexPath.row])
+            cell.configureCell(dog: dogs[indexPath.row], delegate: self)
             return cell
         } else {
             return UITableViewCell()
