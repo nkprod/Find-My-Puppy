@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var probsLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        resultLabel.text = ""
+        resultLabel.text = "Press \"Open Photo\" to recognize breed of your dog"
         probsLabel.text  = ""
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -46,13 +46,6 @@ class ViewController: UIViewController {
         resnet(ref: ref)
     }
 
-    
-    @IBAction func predict(_ sender: UIButton) {
-        guard let image = imageView.highlightedImage, let ref = image.buffer else {
-            return
-        }
-        resnet(ref: ref)
-    }
 }
 
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

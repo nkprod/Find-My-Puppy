@@ -17,7 +17,6 @@ class UploadFoundDogVC: UIViewController, UITextViewDelegate {
     //Outlets
     @IBOutlet weak var dogImageView: UIImageView!
 
-    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var moreInfoTextView: UITextView!
     @IBOutlet weak var lastSeenAddressTextField: UITextField!
     @IBOutlet weak var recognizedBreedTextField: UITextField!
@@ -53,7 +52,7 @@ class UploadFoundDogVC: UIViewController, UITextViewDelegate {
         textView.text = ""
         textView.textColor = .black
     }
-    
+
     
     @IBAction func chooseAnotherPhotoTapped(_ sender: Any) {
         self.present(imagePicker, animated: true, completion: nil)

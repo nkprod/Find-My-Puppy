@@ -3,6 +3,7 @@ import UIKit
 import FirebaseFirestore
 import FirebaseAuth
 import Floaty
+import FirebaseStorage
 
 enum DogCategory: String {
     case lost = "Lost"
@@ -17,6 +18,7 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, D
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var floaty: Floaty!
+    @IBOutlet weak var userImage: UIImageView!
     //Variables
     private var dogs = [Dog]()
     private var dogsCollectionRef: CollectionReference!
@@ -24,10 +26,12 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, D
     private var selectedCategory = DogCategory.lost.rawValue
     //Constants
     let userDefault = UserDefaults.standard
-    
+    let storage = Storage.storage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        userImage.layer.cornerRadius = 90
+        userImage.clipsToBounds = true
         floaty.addItem(title: "Lost Dog", handler: {_ in
             self.performSegue(withIdentifier: "GoToLostDogVC" , sender: self)
         })
@@ -42,13 +46,28 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, D
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
         //        guard let email = Auth.auth().currentUser?.email else { return }
-        guard let username = Auth.auth().currentUser?.displayName else { return }
-        usernameOutlet.text = "\(username)"
+
         dogsCollectionRef = Firestore.firestore().collection(DOGS_REF)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setListener()
+        
+        guard let username = Auth.auth().currentUser?.displayName else { return }
+        usernameOutlet.text = "\(username)"
+        
+        guard let imageURL = Auth.auth().currentUser?.photoURL?.absoluteString else { return }
+        
+        let httpsReference = storage.reference(forURL: imageURL)
+        httpsReference.getData(maxSize: 1 * 1024 * 1024) { (data, error) in
+            if let error = error {
+                // Uh-oh, an error occurred!
+            } else {
+                // Data for "images/island.jpg" is returned
+                let image = UIImage(data: data!)
+                self.userImage.image = image
+            }
+        }
     }
     
     func setListener() {
@@ -73,7 +92,21 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, D
     
     //protocol method for the optionsMenu
     func dogOptionMenuTapped(dog: Dog) {
-        print(dog.name)
+        let alert = UIAlertController(title: "Delete", message: "Do you want to delete your dog?", preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: "Delete", style: .default) { (action) in
+            //delete the dog
+            Firestore.firestore().collection(DOGS_REF).document(dog.documentId).delete(completion: { (error) in
+                if let error = error {
+                    debugPrint("Error deleteing the dog \(error.localizedDescription)")
+                } else {
+                    alert.dismiss(animated: true, completion: nil)
+                }
+            })
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -119,7 +152,9 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, D
         default:
             selectedCategory = DogCategory.found.rawValue
         }
-        dogsListener.remove()
+        if dogsListener != nil {
+            dogsListener.remove()
+        }
         setListener()
     }
     

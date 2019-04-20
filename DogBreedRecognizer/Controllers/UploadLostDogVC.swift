@@ -236,10 +236,6 @@ class UploadLostDogVC: UIViewController,UITextViewDelegate {
                 }
             }
         })
-        
-        
-
-
     }
     
 

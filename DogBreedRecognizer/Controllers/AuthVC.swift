@@ -155,4 +155,23 @@ class AuthVC: UIViewController{
         
     }
     
+    @IBAction func forgotPasswordTapped(_ sender: Any) {
+        let alert = UIAlertController(title: "Forgot Password", message: "Enter your email", preferredStyle: .alert)
+
+        alert.addTextField { (textField) in
+            textField.placeholder = "Email"
+        }
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert!.textFields![0]
+            guard let email = textField.text, email != "" else { return }
+            Auth.auth().sendPasswordReset(withEmail: email) { error in
+                if let error = error {
+                    debugPrint("Error sending the verification email \(error.localizedDescription)")
+                }
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
 }

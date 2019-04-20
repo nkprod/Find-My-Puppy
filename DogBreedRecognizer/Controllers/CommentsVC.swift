@@ -123,7 +123,8 @@ class CommentsVC: UIViewController, UITableViewDelegate,UITableViewDataSource, C
             
         }
         let editAction = UIAlertAction(title: "Edit Comment", style: .default) { (action) in
-            //update the comment
+            self.performSegue(withIdentifier: "GoToUpdateCommentVC", sender: (comment, self.dog))
+            alert.dismiss(animated: true, completion: nil)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(deleteAction)
@@ -132,6 +133,13 @@ class CommentsVC: UIViewController, UITableViewDelegate,UITableViewDataSource, C
         present(alert,animated: true,completion: nil)
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? UpdateCommentVC {
+            if let commentData = sender as? (comment: Comment, dog: Dog) {
+                destination.data = commentData
+            }
+        }
+    }
     
     
     @IBAction func addCommentTapped(_ sender: Any) {
