@@ -1,3 +1,3 @@
 # Find-My-Puppy
 Socially beneficial IOS application for people who lost their dogs and for those who want to find them.
-![Screenshot](Auth_screen.png)
+![alt text](https://github.com/nkprod/Find-My-Puppy/blob/master/Auth_screen.png)
